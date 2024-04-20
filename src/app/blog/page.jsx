@@ -1,5 +1,10 @@
 import DialogButton from "@/components/dialog-button/dialogButton";
 import PostCard from "@/components/postCard/postCard";
+
+export const metadata = {
+  title: "blog page",
+  description: "Next.js starter app",
+};
 const Blog = async ({ params, searchParams }) => {
   // const [data , setData] = useState(null)
   const getData = async () => {

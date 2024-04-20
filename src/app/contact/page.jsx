@@ -1,8 +1,28 @@
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Contact page",
+  description: "Next.js starter app",
+};
+
 const Contact = () => {
-  console.log('it works here')
+   
+  const inputs =  [
+
+    { name: 'name', value: 'daniel' },
+    { name: 'email', value: 'dannymohammadi1377@gmail.com' },
+    { name: 'number', value: '09122598501' },
+    { name: 'textArea', value: 'asdgsag' }
+  ]
+
+  console.log('fromEntities',Object.entries(inputs))
+
+  const serverActionFunc = async (formData) => {
+    "use server";
+    // const name = formData.get('name')
+    console.log(formData)
+  };
   return (
     <>
       <div className="flex flex-wrap flex-row">
@@ -15,7 +35,7 @@ const Contact = () => {
           />
         </div>
         <div className="sm:w-6/12 w-full">
-          <form action="" className="flex flex-col ">
+          <form action={serverActionFunc} className="flex flex-col ">
             <input
               name="name"
               type="text"
