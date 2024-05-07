@@ -1,5 +1,6 @@
 import DialogButton from "@/components/dialog-button/dialogButton";
 import PostCard from "@/components/postCard/postCard";
+import connectToDb from "@/lib/connectTodb";
 
 export const metadata = {
   title: "blog page",
@@ -27,7 +28,10 @@ const Blog = async ({ params, searchParams }) => {
 
   // },[])
   const post = await getData();
-
+  const postgresData = await connectToDb(
+    `SELECT * FROM cars where brand='BMW'`
+  );
+  console.log("postgresData", postgresData);
   return (
     <>
       <DialogButton />
@@ -43,6 +47,7 @@ const Blog = async ({ params, searchParams }) => {
             />
           );
         })}
+   
       </div>
     </>
   );
