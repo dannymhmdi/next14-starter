@@ -31,7 +31,7 @@ const Blog = async ({ params, searchParams }) => {
   const post = await getData();
   const getApiData = async () => {
     const res = fetch(`http://localhost:3000/api/blog`,{cache:'no-cache'})
-    return (await res).json()
+    return  (await res).json()
   }
   const result = await getApiData()
   console.log('result in blog',result)

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export const GET = async (req , res) =>{
 try{
- const response  = await connectToDb(`select year,model from cars where brand='Benz'`)
+ const response  = await connectToDb(`select * from cars where brand='bentley'`)
      return NextResponse.json(response)
 }
 catch(err){
