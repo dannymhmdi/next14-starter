@@ -1,6 +1,7 @@
 import DialogButton from "@/components/dialog-button/dialogButton";
 import PostCard from "@/components/postCard/postCard";
 import connectToDb from "@/lib/connectTodb";
+import { resolve } from "styled-jsx/css";
 
 export const metadata = {
   title: "blog page",
@@ -28,10 +29,16 @@ const Blog = async ({ params, searchParams }) => {
 
   // },[])
   const post = await getData();
-  const postgresData = await connectToDb(
-    `SELECT * FROM cars where brand='BMW'`
-  );
-  console.log("postgresData", postgresData);
+  const getApiData = async () => {
+    const res = fetch(`http://localhost:3000/api/blog`,{cache:'no-cache'})
+    return (await res).json()
+  }
+  const result = await getApiData()
+  console.log('result in blog',result)
+  // const postgresData = await connectToDb(
+  //   `SELECT * FROM cars where brand='BMW'`
+  // );
+  // console.log("postgresData", postgresData);
   return (
     <>
       <DialogButton />

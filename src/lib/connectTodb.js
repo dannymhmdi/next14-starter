@@ -21,5 +21,4 @@ const connectToDb = async (sql) => {
     throw new Error("faild to connect to database");
   }
 };
-// call()
 module.exports = connectToDb;
